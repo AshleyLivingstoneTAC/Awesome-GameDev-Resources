@@ -1,4 +1,5 @@
 // add your imports here
-int main(){
+int main()
+{
   // code here
 }
