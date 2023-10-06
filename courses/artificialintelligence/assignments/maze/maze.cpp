@@ -1,7 +1,8 @@
+#include <iostream>
 #include <fstream>
 #include <vector>
-vector<bool> vert, hor, visit;
-struct point2D{ int x, y; };
+std::vector<bool> vert, hor, visit;
+struct Point2D{ int x, y; };
 Point2D limit;
 void generateMap(Point2D limits)
 {
@@ -9,15 +10,15 @@ void generateMap(Point2D limits)
     hor.resize(limits.x+1 * limits.y+1);
     visit.resize(limits.x * limits.y);
 
-    for(int i = 0; i < visit.size; i++)
+    for(int i = 0; i < visit.size(); i++)
     {
         visit[i] = false;
     }
-    for(int i = 0; i < hor.size; i++)
+    for(int i = 0; i < hor.size(); i++)
     {
         hor[i] = true;
     }
-    for(int i = 0; i < vert.size; i++)
+    for(int i = 0; i < vert.size(); i++)
     {
         vert[i] = true;
     }
@@ -30,7 +31,7 @@ enum class Direction
     UP = 0,
     RIGHT,
     DOWN,
-    LEFT;
+    LEFT
 };
 void BreakWall(Point2D p, Direction d)
 {
@@ -77,7 +78,7 @@ void setVisit(Point2D p, bool state)
     visit[limit.x*p.y+p.x] = state;
 }
 
-vector<Point2D> getVisitable(point2D p)
+std::vector<Point2D> getVisitable(Point2D p)
 {
     if(p.x < 0)
         return true;
@@ -88,7 +89,7 @@ vector<Point2D> getVisitable(point2D p)
 int main()
 {
     int steps;
-    cin >> limit.x >> limit.y >> steps;
+    std::cin >> limit.x >> limit.y >> steps;
     generateMap(limit);
 
 }
